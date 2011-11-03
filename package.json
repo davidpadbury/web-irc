@@ -1,0 +1,23 @@
+{
+  "author": "Aaron Kavlie",
+  "name": "web-irc",
+  "description": "WebBased irc client.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/akavlie/web-irc",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akavlie/web-irc.git"
+  },
+  "engines": {
+    "node": "0.4.x"
+  },
+  "dependencies": {
+		"socket.io": "0.8.x",
+		"irc":"0.3.x"
+	},
+  "devDependencies": {},
+	"bin": {
+		"web-irc": "./bin/web-irc"
+	},
+	"main": "./server.js"
+}
