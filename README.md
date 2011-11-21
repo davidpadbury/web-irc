@@ -12,6 +12,11 @@ Martyn Smith's [node-irc](https://github.com/martynsmith/node-irc) on the backen
 and [Backbone.js](http://documentcloud.github.com/backbone/) and
 [jQuery](http://jquery.com/) on the frontend.
 
+Try web-irc
+-----------
+
+[Give it a spin on Nodester!](http://web-irc.nodester.com/)
+(bug reports welcome.)
 
 Status
 ------
@@ -20,20 +25,18 @@ The app is still in its early stages. Potential contributors should find plenty 
 
 Here's what works:
 
-- Join (hardcoded) network, see MOTD
-- Join (sample list of) channels
+- Choose nick/network/channel(s) to use at login
+- Join channels
 - Send messages to channels
 - Switch between channel tabs, see chat output
 - Leave channels
+- Private messages
+- Channel topics
 
 Here's (a partial list of) what doesn't work yet:
 
 - Status messages
-- Private messages
-- / commands in input field
-- Choose network & nick to use at login
-- Channel topics & member lists
-- Listing channels (node-irc support needed for this)
+- Listing channels
 
 Design/UI/UX help also **desperately needed**.
 
@@ -45,9 +48,9 @@ Installation
 
         curl http://npmjs.org/install.sh | sh
 
-3. Install node-irc
+3. Install dependencies
 
-        npm install node-irc
+        npm install express irc
 
 4. Run server
         

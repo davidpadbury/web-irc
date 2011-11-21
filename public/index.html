@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<title>web-irc</title>
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+
+<body>
+    <div id="content">
+        <header>
+            <ul class="frames pills"></ul>
+        </header>
+
+        <div id="frame">
+            <div id="sidebar">
+                <div class="stats">nick count here</div>
+                <div class="nicks"></div>
+            </div>
+            <div class="wrapper">
+                <div id="output">
+                    <div id="topic">channel topic here</div>
+                    <div id="messages"></div>
+                    <div class="gutter"></div>
+                </div>
+            </div>
+            <input id="prime-input" type="text">
+        </div>
+    </div>
+
+    <div id="connect" class="modal">
+        <div class="modal-header">
+            <h3>Connect to IRC</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="clearfix">
+                    <label for="connect-nick">Nickname</label>
+                    <div class="input">
+                        <input type="text" id="connect-nick" name="nick">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="connect-server">IRC Server</label>
+                    <div class="input">
+                        <input type="text" id="connect-server" name="server">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="channels">Channels</label>
+                    <div class="input">
+                        <input type="text" id="connect-channels" name="channels">
+                        <span class="help-block">Separate multiple channels with spaces</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn primary">Connect</a>
+        </div>
+    </div>
+
+    <!-- Mustache templates -->
+    <script id="message-tmpl" type="text/html">
+        {{#sender}}<span class="sender">{{sender}}</span>{{/sender}}
+        <span class="text {{^sender}}no-sender{{/sender}}">{{{text}}</span>
+    </script>
+
+    <script id="tab-tmpl" type="text/html">
+        <a class="name {{type}}">{{text}}</a>
+        {{^isStatus}}
+            <span class="close-frame"></span>
+        {{/isStatus}}
+    </script>
+
+    <!-- JAVASCRIPT -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/bootstrap/bootstrap-modal.js"></script>
+
+    <script src="js/util.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -19,69 +19,54 @@ ul {
 
 #content {
 	padding: 5px;
+    display: none;
 }
 
 header {
-    margin-bottom: 5px;
-}
-
-#sidebar {
-	float: right;
+    margin-bottom: 3px;
 }
 
 .frames {
     margin: 0;
 }
 
-/*
-.frames li {
-    cursor: default;
-    font-size: 14px;
-	padding: 4px 7px;
-	margin-right: 5px;
-	background: #dedede;
-}
-
-.frames li.active {
-    color: white;
-    background: #74a8f5;
-}
-*/
-
-#sidebar .frames {
-    display: block;
-}
-
-/*
-header .frames li {
-    display: inline-block;
-}
-header .frames li .name {
-    padding-right: 3px;
-    border-right: 1px solid white;
-}
-*/
-
-.frame {
-    position: relative;
-    margin-right: 75px;
-}
-
-.frame .wrapper {
+#frame {
     position: relative;
 }
 
-.frame .output {
+#frame .wrapper {
+    position: relative;
+}
+
+#output {
     font-size: 14px;
-    border: 1px solid #444;
-    padding: 5px;
+    position: relative;
     margin-bottom: 5px;
-    overflow: auto;
-    position: relative;
-    z-index: 10;
+    border: 1px solid #888;
 }
 
-.frame.channel .gutter {
+#output #topic {
+    position: relative;
+    min-height: 40px;
+    padding: 5px;
+    background-color: #e2e2e2;
+    border-bottom: 1px solid #444;
+    display: none;
+    z-index: 2;
+}
+
+#output #messages {
+    position: absolute;
+    padding: 5px;
+    overflow: auto;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#frame .gutter {
     position: absolute;
     background-color: #e2e2e2;
     border-right: 1px solid #888;
@@ -91,8 +76,16 @@ header .frames li .name {
     height: 100%;
 }
 
+#frame.status .gutter {
+    display: none;
+}
 
-.output .sender {
+/* Special message types */
+#output .error {
+    background-color: red;
+}
+
+#output .sender {
     color: #444;
     display: block;
     float: left;
@@ -101,25 +94,44 @@ header .frames li .name {
     z-index: 10;
 }
 
-.output .text {
+#output .text {
     color: #222;
     display: block;
     margin-left: 115px;
     margin-bottom: 4px;
 }
 
-.output .text.no-sender {
+#frame.status .text.no-sender {
     margin-left: 0;
 }
 
-.frame .nicks {
-    float: right;
+#sidebar {
     width: 200px;
+    margin: 0 0 5px 5px;
+    border: 1px solid #888;
+    float: right;
+    position: relative;
+    display: none;
+}
+
+#sidebar .stats {
+    position: relative;
+    top: 0;
+    height: 40px;
+    background-color: #e2e2e2;
+    border-bottom: 1px solid #888;
+    display: none;
+}
+
+#sidebar .nicks {
+    position: absolute;
     overflow: auto;
     padding: 5px;
-    margin: 0 0 5px 5px;
-    border: 1px solid gray;
-    display: none;
+    top: 0;
+    /*top: 40px;*/
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #prime-input {
@@ -132,7 +144,7 @@ header .frames li .name {
 /* Twitter Bootstrap overrides
 ----------------------------------------------------------------------*/
 
-.pills > li { margin-right: 8px;}
+.pills > li { margin-right: 6px; }
 .pills > li > * { float: left; }
 
 .pills > li > a {
@@ -141,6 +153,7 @@ header .frames li .name {
     padding: 0 12px;
     margin: 0 1px 0 0;
     border-radius: 3px;
+    line-height: 26px;
 }
 .pills > li > a.channel,
 .pills > li > a.pm {
@@ -151,7 +164,7 @@ header .frames li .name {
     cursor: pointer;
     background: #e2e2e2 url(images/close.png) no-repeat center center;
     width: 18px;
-    height: 30px;
+    height: 26px;
     border-radius: 0 3px 3px 0;
 }
 
@@ -161,5 +174,7 @@ header .frames li .name {
 
 .pills > li:hover > a,
 .pills > li:hover > .close-frame {
+    color: white;
+    text-shadow: 0;
     background-color: #00438a;
 }
