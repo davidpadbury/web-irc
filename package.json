@@ -13,7 +13,8 @@
   },
   "dependencies": {
 		"socket.io": "0.8.x",
-		"irc":"0.3.x"
+		"irc":"0.3.x",
+		"express":"2.x.x"
 	},
   "devDependencies": {},
 	"bin": {
